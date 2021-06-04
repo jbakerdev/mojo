@@ -1,6 +1,8 @@
 package App;
 use Mojo::Base 'Mojolicious', -signatures;
 
+use Lingua::EN::Inflect qw/PL/;
+
 # This method will run once at server start
 sub startup ($self) {
 
@@ -31,8 +33,27 @@ sub startup ($self) {
   # Router
   my $r = $self->routes;
 
-  # Normal route to controller
-  $r->get('/')->to('example#welcome');
+  # Default route
+  $r->get('/')->to('home#index');
+
+  # Simple "resource" shortcut
+  $r->add_shortcut(resource => sub ($r, $name) {
+    # Inflect plural
+    my $names = PL($name);
+
+    # Prefix for resource
+    my $resource = $r->any("/$names")->to("$names#");
+
+    $resource->get('/')->to('#index')->name($names);
+    $resource->get('/new')->to('#nu')->name("new_$name");
+    $resource->post->to('#create')->name("create_$name");
+    $resource->get('/:id')->to('#show')->name("$name");
+    $resource->get('/:id/edit')->to('#edit')->name("edit_$name");
+    $resource->put('/:id')->to('#update')->name("update_$name");
+    $resource->delete('/:id')->to('#delete')->name("delete_$name");
+
+    return $resource;
+  });
 }
 
 1;

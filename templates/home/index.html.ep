@@ -1,0 +1,4 @@
+% layout 'default';
+% title 'Home';
+
+%= tag 'h1', "Home"
