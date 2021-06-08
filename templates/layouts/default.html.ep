@@ -4,5 +4,27 @@
     <title><%= title %></title>
     %= asset "app.css"
   </head>
-  <body><%= content %></body>
+  <body>
+    <header>
+      %= include "app/_navbar"
+    </header>
+
+    <main class="my-5 container">
+      <section>
+        % if (my $debug = flash 'debug') {
+          %= include 'app/_alert', type => 'info', message => $debug;
+        % }
+
+        % if (my $error = flash 'error') {
+          %= include 'app/_alert', type => 'danger', message => $error;
+        % }
+
+        % if (my $message = flash 'message') {
+          %= include 'app/_alert', type => 'primary', message => $message;
+        % }
+      </section>
+
+      <%= content %>
+    </main>
+  </body>
 </html>
