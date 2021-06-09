@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
-  <head><title><%= title %></title></head>
+  <head>
+    <title><%= title %></title>
+    %= asset "app.css"
+  </head>
   <body><%= content %></body>
 </html>

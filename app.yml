@@ -1,3 +1,11 @@
 ---
+dbic:
+  schema:
+    "App::Schema": <%= $ENV{DBIC_CONNECTION_STRING} // '' %>
+oauth2:
+  github:
+    key: <%= $ENV{OAUTH2_GITHUB_KEY} // '' %>
+    secret: <%= $ENV{OAUTH2_GITHUB_SECRET} // '' %>
+    scope: <%= $ENV{OAUTH2_GITHUB_SCOPE} // '' %>
 secrets:
   - a09d1daeb834c055c8886873c7347ed5f3a4780d
