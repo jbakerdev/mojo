@@ -1,7 +1,7 @@
 ---
 dbic:
   schema:
-    "App::Schema": <%= $ENV{DBIC_CONNECTION_STRING} // '' %>
+    "App::Schema": <%= $ENV{DBIC_CONNECTION_STRING} // "dbi:mysql:database=mojo_$ENV{MOJO_MODE};host=127.0.0.1" %>
 oauth2:
   github:
     key: <%= $ENV{OAUTH2_GITHUB_KEY} // '' %>

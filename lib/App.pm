@@ -7,7 +7,11 @@ use Lingua::EN::Inflect qw/PL/;
 sub startup ($self) {
 
   # Load configuration from config file
-  my $config = $self->plugin('NotYAMLConfig');
+  my $config = $self->plugin('NotYAMLConfig', {file => 'config/app.yml'});
+  my $environment_config = "config/environments/$ENV{MOJO_MODE}.yml";
+  if (-f $environment_config) {
+    $config = $self->plugin('NotYAMLConfig', {file => $environment_config});
+  }
 
   # Configure the application
   $self->secrets($config->{secrets});
