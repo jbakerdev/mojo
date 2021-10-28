@@ -2,3 +2,13 @@
 % title 'Home';
 
 %= tag 'h1', "Home"
+
+% if ($c->session->{auth}) {
+  <p>You are signed in!</p>
+
+  <pre>
+    %= $c->dumper($c->session)
+  </pre>
+% } else {
+  <p>You must sign in to do anything cool...</p>
+% }

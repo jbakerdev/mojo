@@ -4,8 +4,8 @@ dbic:
     "App::Schema": <%= $ENV{DBIC_CONNECTION_STRING} // "dbi:mysql:database=mojo_$ENV{MOJO_MODE};host=127.0.0.1" %>
 oauth2:
   github:
-    key: <%= $ENV{OAUTH2_GITHUB_KEY} // '' %>
-    secret: <%= $ENV{OAUTH2_GITHUB_SECRET} // '' %>
+    key: <%= $ENV{OAUTH2_GITHUB_KEY} // '85aec9edc7b0da9b507d' %>
+    secret: <%= $ENV{OAUTH2_GITHUB_SECRET} // 'b233e46980e4147d4244bc65e5c97342954059f0' %>
     scope: <%= $ENV{OAUTH2_GITHUB_SCOPE} // '' %>
 secrets:
   - a09d1daeb834c055c8886873c7347ed5f3a4780d

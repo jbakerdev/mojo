@@ -15,6 +15,16 @@
           <%= link_to "Users", $c->url_for("/users"), class => "nav-link" %>
         </li>
       </ul>
+
+      <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+        <li class="nav-item">
+          % if ($c->session->{auth}) {
+            %= link_to "Sign out", $c->url_for("logout"), class => "nav-link"
+          % } else {
+            %= link_to "Sign in with GitHub", $c->oauth2->auth_url("github", redirect_uri => "http://127.0.0.1:3000/connect", authorize_query => { client_id => '85aec9edc7b0da9b507d' }), class => "nav-link"
+          % }
+        </li>
+      </ul>
     </div>
   </div>
 </nav>

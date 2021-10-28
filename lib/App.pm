@@ -20,6 +20,7 @@ sub startup ($self) {
   $self->plugin('AssetPack' => { pipes => [qw(Sass Css Combine)] });
   $self->plugin('AutoReload');
   $self->plugin('DBIC' => $config->{dbic});
+  $self->plugin('DefaultHelpers');
   $self->plugin('OAuth2' => $config->{oauth2});
   
   # Configure assets
@@ -62,6 +63,10 @@ sub startup ($self) {
 
     return $resource;
   });
+
+  # Login
+  $r->get('/connect')->to('home#connect');
+  $r->get('/logout')->to('home#logout');
 
   $r->resource('user');
 }
