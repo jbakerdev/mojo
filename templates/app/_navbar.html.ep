@@ -17,13 +17,25 @@
       </ul>
 
       <ul class="navbar-nav ms-auto mb-2 mb-md-0">
-        <li class="nav-item">
-          % if ($c->session->{auth}) {
-            %= link_to "Sign out", $c->url_for("logout"), class => "nav-link"
-          % } else {
-            %= link_to "Sign in with GitHub", $c->oauth2->auth_url("github", redirect_uri => "http://127.0.0.1:3000/connect", authorize_query => { client_id => '85aec9edc7b0da9b507d' }), class => "nav-link"
-          % }
-        </li>
+        <% if ($c->session->{auth}) { =%>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown"><%= $c->session->{email} %></a>
+              <ul class="dropdown-menu">
+                <li>
+                  %= link_to "Profile", $c->url_for("users"), class => "dropdown-item"
+                </li>
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                  %= link_to "Log out", $c->url_for("logout"), class => "dropdown-item"
+                </li>
+              </ul>
+            </li>
+
+        <% } else { =%>
+          <li class="nav-item">
+            %= link_to "Log in", $c->oauth2->auth_url("github", redirect_uri => "http://127.0.0.1:3000/connect", authorize_query => { client_id => '85aec9edc7b0da9b507d' }), class => "nav-link"
+          </li>
+        <% } =%>
       </ul>
     </div>
   </div>
