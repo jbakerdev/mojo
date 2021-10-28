@@ -3,6 +3,7 @@
   <head>
     <title><%= title %></title>
     %= asset "app.css"
+    %= asset "app.js"
   </head>
   <body>
     <header>
