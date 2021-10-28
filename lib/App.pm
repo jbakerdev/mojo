@@ -28,7 +28,7 @@ sub startup ($self) {
     "app.css" => (
       # source files used to create the asset
       "app.scss",
-      'https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css'
+      'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css'
     )
   );
 
