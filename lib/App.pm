@@ -62,6 +62,8 @@ sub startup ($self) {
 
     return $resource;
   });
+
+  $r->resource('user');
 }
 
 1;

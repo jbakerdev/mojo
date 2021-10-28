@@ -1,0 +1,16 @@
+% layout 'default';
+% title 'Users';
+
+%= tag 'h1', "Users"
+
+<div class="container">
+  <div class="row border-bottom fw-bold p-2 text-uppercase">
+    %= tag 'span', class => 'col-1', "ID"
+    %= tag 'span', class => 'col', "Name"
+    %= tag 'span', class => 'col', "Email"
+  </div>
+
+  % while (my $user = $users->next) {
+    %= include "users/_user", user => $user;
+  % }
+</div>

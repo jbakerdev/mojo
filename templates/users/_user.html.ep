@@ -1,0 +1,6 @@
+<div class="row p-2">
+  %= tag 'span', class => 'col-1', $user->id
+  %= tag 'span', class => 'col', $user->name
+  %= tag 'span', class => 'col', $user->email
+</div>
+

@@ -11,6 +11,9 @@
         <li class="nav-item">
           <%= link_to "Home", $c->url_for("/"), class => "nav-link" %>
         </li>
+        <li class="nav-item">
+          <%= link_to "Users", $c->url_for("/users"), class => "nav-link" %>
+        </li>
       </ul>
     </div>
   </div>
