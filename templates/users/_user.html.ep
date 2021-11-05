@@ -2,5 +2,8 @@
   %= tag 'span', class => 'col-1', $user->id
   %= tag 'span', class => 'col', $user->name
   %= tag 'span', class => 'col', $user->email
+  %= tag span => (class => 'col') => begin
+    %= link_to Edit => url_for('edit_user', id => $user->id)
+  % end
 </div>
 

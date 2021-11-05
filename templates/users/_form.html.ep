@@ -1,0 +1,13 @@
+%= form_for users => (method => 'POST') => begin
+  <div>
+    %= label_for name => 'Name'
+    %= text_field 'name', $user->name
+  </div>
+
+  <div>
+    %= label_for email => 'Email'
+    %= text_field 'email', $user->email
+  </div>
+
+  %= submit_button
+% end

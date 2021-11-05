@@ -7,7 +7,10 @@
   <div class="row border-bottom fw-bold p-2 text-uppercase">
     %= tag 'span', class => 'col-1', "ID"
     %= tag 'span', class => 'col', "Name"
-    %= tag 'span', class => 'col', "Email"
+    %= tag span => class => 'col', "Email"
+    %= tag span => (class => 'col') => begin
+      <p>stuff</p>
+    % end
   </div>
 
   % while (my $user = $users->next) {

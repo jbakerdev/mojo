@@ -55,7 +55,7 @@ sub startup ($self) {
 
     $resource->get('/')->to('#index')->name($names);
     $resource->get('/new')->to('#nu')->name("new_$name");
-    $resource->post->to('#create')->name("create_$name");
+    $resource->post('/')->to('#create')->name("create_$name");
     $resource->get('/:id')->to('#show')->name("$name");
     $resource->get('/:id/edit')->to('#edit')->name("edit_$name");
     $resource->put('/:id')->to('#update')->name("update_$name");

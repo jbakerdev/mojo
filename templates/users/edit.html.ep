@@ -1,0 +1,6 @@
+% layout 'default';
+% title 'Edit Users';
+
+%= tag 'h1', "Edit User"
+
+%= include "users/_form", user => $user;
